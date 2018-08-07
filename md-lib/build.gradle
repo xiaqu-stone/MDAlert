@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-common:$anko"
+}
+repositories {
+    mavenCentral()
+}
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'md-lib'
+
+    publishedGroupId = 'com.sqq.xiaqu'
+    libraryName = 'md-lib'
+    artifact = 'md-lib'
+
+    libraryVersion = '1.0.0'
+
+    libraryDescription = 'MD样式AlertDialog，基于官方兼容类AlertDialog的再封装，简单易用'
+
+    siteUrl = 'https://github.com/xiaqu-stone/MDAlert'
+    gitUrl = 'https://github.com/xiaqu-stone/MDAlert.git'
+
+    developerId = 'stone'
+    developerName = 'xiaqu-stone'
+    developerEmail = 'stone.xiaqu@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/install-v1.gradle"
+apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/bintray-v2.gradle"
