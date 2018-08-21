@@ -6,7 +6,7 @@ MD样式AlertDialog，基于官方兼容类AlertDialog的再封装，简单易�
 ### gradle
 
 ```
-implementation "com.sqq.xiaqu:md-lib:1.0.0"
+implementation "com.sqq.xiaqu:md-lib:1.0.1"
 ```
 
 ### 功能简介：
@@ -16,3 +16,9 @@ implementation "com.sqq.xiaqu:md-lib:1.0.0"
 3. 可自定义ContentView，支持内容滑动的包装
 4. 可自定义TitleView
 5. 默认的文案，颜色，字体大小可支持APP全局配置
+
+
+
+### 更新日志
+
+- `v1.0.1` 针对Kotlin，增加lambda监听设置方式

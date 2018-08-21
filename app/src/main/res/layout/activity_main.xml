@@ -41,8 +41,8 @@
         android:id="@+id/btnSingleAlertKt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="单按钮Alert"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,13 +59,27 @@
         app:layout_constraintStart_toEndOf="@+id/btnSingleAlertKt"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <Button
+        android:id="@+id/btnListener"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Test Listener"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDoubleAlertKt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnDoubleAlertKt"
+        app:layout_constraintTop_toTopOf="@+id/btnDoubleAlertKt" />
+
 
     <Button
         android:id="@+id/btnSingleAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="单按钮Alert"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,5 +95,6 @@
         android:text="双按钮Alert"
         app:layout_constraintStart_toEndOf="@+id/btnSingleAlert"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 
 </android.support.constraint.ConstraintLayout>

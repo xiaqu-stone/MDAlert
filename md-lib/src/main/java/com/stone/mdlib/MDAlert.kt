@@ -76,6 +76,10 @@ private fun Context.dp2px(dp: Int): Int {
 open class MDAlert(protected val ctx: Context) {
     protected val p = MDParams()
 
+    @PublishedApi
+    internal val `access$p`: MDParams
+        get() = p
+
     var customView: View? = null
         private set
     private var titleView: View? = null
@@ -331,6 +335,12 @@ open class MDAlert(protected val ctx: Context) {
         return setBtnPositive(ctx.getString(text))
     }
 
+    @JvmOverloads
+    inline fun setBtnPositive(text: CharSequence = defaultPositiveText, crossinline callback: (dialog: DialogInterface) -> Unit): MDAlert {
+        this.`access$p`.positiveListener = DialogInterface.OnClickListener { dialog, _ -> callback.invoke(dialog) }
+        return setBtnPositive(text)
+    }
+
     /**
      * @param text text
      * @param color   colorInt，默认值-1，即不处理颜色，跟随系统
@@ -348,6 +358,11 @@ open class MDAlert(protected val ctx: Context) {
         return setBtnNegative(ctx.getString(text))
     }
 
+    @JvmOverloads
+    inline fun setBtnNegative(text: CharSequence = defaultNegativeText, crossinline callback: (dialog: DialogInterface) -> Unit): MDAlert {
+        this.`access$p`.negativeListener = DialogInterface.OnClickListener { dialog, _ -> callback.invoke(dialog) }
+        return setBtnNegative(text)
+    }
 
     /**
      * @param text text
@@ -364,6 +379,17 @@ open class MDAlert(protected val ctx: Context) {
 
     fun setBtnNeutral(@StringRes text: Int): MDAlert {
         return setBtnNegative(ctx.getString(text))
+    }
+
+    @JvmOverloads
+    inline fun setBtnNeutral(text: CharSequence = "Neutral", crossinline callback: (dialog: DialogInterface) -> Unit): MDAlert {
+        this.`access$p`.neutralListener = DialogInterface.OnClickListener { dialog, _ -> callback.invoke(dialog) }
+        return setBtnNeutral(text)
+    }
+
+    inline fun setListener(crossinline listener: (dialog: DialogInterface, which: Int) -> Unit): MDAlert {
+        this.`access$p`.listener = DialogInterface.OnClickListener { dialog, which -> listener.invoke(dialog, which) }
+        return this
     }
 
     /**
@@ -489,5 +515,6 @@ open class MDAlert(protected val ctx: Context) {
         @StyleRes
         var defaultAlertStyle = R.style.MDAlertStyle
     }
+
 
 }

@@ -44,7 +44,7 @@ ext {
     libraryName = 'md-lib'
     artifact = 'md-lib'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     libraryDescription = 'MD样式AlertDialog，基于官方兼容类AlertDialog的再封装，简单易用'
 
